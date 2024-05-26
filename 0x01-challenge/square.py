@@ -1,15 +1,24 @@
 #!/usr/bin/python3
+"""
+    Calculations on a square
 
-class square():
+    Returns:Area  or perimeter
+"""
     
-    width = 0
-    height = 0
+    
+class Square():
+    """ 
+        class of a square
+    """
 
     
     def __init__(self, *args, **kwargs):
         for key, value in kwargs.items():
-            setattr(self, key, value)
-
+            self.width = kwargs.get('width', 0)
+            self.height = kwargs.get('height', 0)
+            if self.width != self.height:
+                raise ValueError("The width and height must be equal")
+    
     def area_of_my_square(self):
         """ Area of the square """
         return self.width * self.height
@@ -22,7 +31,7 @@ class square():
 
 if __name__ == "__main__":
 
-    s = square(width=12, height=9)
+    s = Square(width=12, height=9)
     print(s)
     print(s.area_of_my_square())
     print(s.PermiterOfMySquare())
